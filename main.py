@@ -13,7 +13,6 @@ logger = logging.getLogger("stream")
 
 app = FastAPI()
 
-
 client = OpenAI(
     api_key=os.environ["GROQ_API_KEY"],
     base_url="https://api.groq.com/openai/v1",
@@ -28,7 +27,6 @@ async def token_generator(request: Request, prompt: str):
         messages=[{"role": "user", "content": prompt}],
         stream=True,
     )
-
 
     token_count = 0
     try:
